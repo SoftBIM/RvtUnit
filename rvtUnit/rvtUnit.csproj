@@ -92,6 +92,7 @@
     </Compile>
     <Compile Include="Controls\TestResultViewerViewModel.cs" />
     <Compile Include="Helpers\VisibilityConverter.cs" />
+    <Compile Include="Models\NotifyPropertyChanged.cs" />
     <Compile Include="Models\TestableDll.cs" />
     <Compile Include="Models\Test.cs" />
     <Compile Include="Helpers\TestFilter.cs" />

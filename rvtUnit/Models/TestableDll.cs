@@ -7,7 +7,7 @@ using System.ComponentModel;
 
 namespace rvtUnit.Models
 {
-    public class TestableDll : INotifyPropertyChanged
+    public class TestableDll : ModelBase
     {
         public TestableDll(string fullFileName)
         {
@@ -40,7 +40,7 @@ namespace rvtUnit.Models
 			set
 			{
 				_IsAllChecked = value;
-				NotifyPropertyChanged("IsAllChecked");
+				OnPropertyChanged(nameof(IsAllChecked));
 				if (Tests != null)
 				{
 					foreach (Test test in Tests)
@@ -51,16 +51,5 @@ namespace rvtUnit.Models
 			}
 		}
 
-		#region INotifyPropertyChanged
-		public event PropertyChangedEventHandler PropertyChanged;
-
-		private void NotifyPropertyChanged(String info)
-		{
-			if (PropertyChanged != null)
-			{
-				PropertyChanged(this, new PropertyChangedEventArgs(info));
-			}
-		}
-		#endregion
     }
 }

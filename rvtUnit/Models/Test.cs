@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.ComponentModel;
 using System.Windows.Media;
+using GalaSoft.MvvmLight;
 
 namespace rvtUnit.Models
 {
-	public class Test : INotifyPropertyChanged
+	public class Test : ModelBase
 	{
 		private bool _IsChecked;
 		public bool IsChecked
@@ -19,7 +20,7 @@ namespace rvtUnit.Models
 			set
 			{
 				_IsChecked = value;
-				NotifyPropertyChanged("IsChecked");
+				OnPropertyChanged(nameof(IsChecked));
 			}
 		}
 
@@ -33,7 +34,7 @@ namespace rvtUnit.Models
 			set
 			{
 				_TestName = value;
-				NotifyPropertyChanged("TestName");
+				OnPropertyChanged(nameof(TestName));
 			}
 		}
 
@@ -44,20 +45,10 @@ namespace rvtUnit.Models
 			set
 			{
 				_brush = value;
-				NotifyPropertyChanged("Brush");
+				OnPropertyChanged(nameof(Brush));
 			}
 		}
 
-		#region INotifyPropertyChanged
-		public event PropertyChangedEventHandler PropertyChanged;
-
-		private void NotifyPropertyChanged(String info)
-		{
-			if (PropertyChanged != null)
-			{
-				PropertyChanged(this, new PropertyChangedEventArgs(info));
-			}
-		}
-		#endregion
+	
 	}
 }
