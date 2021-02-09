@@ -74,7 +74,7 @@ namespace SampleTool.Helper
 			{
 				return null;
 			}
-			Parameter theParam = pInfo.get_Parameter(parameterName);
+			Parameter theParam = pInfo.LookupParameter(parameterName);
 			if (null == theParam)
 			{
 				return null;
